@@ -42,19 +42,20 @@ function Board(height, width) {
   this.speed = "fast";
 }
 
-Board.prototype.initialise = function() {
+Board.prototype.initialise = function () {
   this.createGrid();
   this.addEventListeners();
   this.toggleTutorialButtons();
 };
 
-Board.prototype.createGrid = function() {
+Board.prototype.createGrid = function () {
   let tableHTML = "";
   for (let r = 0; r < this.height; r++) {
     let currentArrayRow = [];
     let currentHTMLRow = `<tr id="row ${r}">`;
     for (let c = 0; c < this.width; c++) {
-      let newNodeId = `${r}-${c}`, newNodeClass, newNode;
+      let newNodeId = `${r}-${c}`,
+        newNodeClass, newNode;
       if (r === Math.floor(this.height / 2) && c === Math.floor(this.width / 4)) {
         newNodeClass = "start";
         this.start = `${newNodeId}`;
@@ -76,7 +77,7 @@ Board.prototype.createGrid = function() {
   board.innerHTML = tableHTML;
 };
 
-Board.prototype.addEventListeners = function() {
+Board.prototype.addEventListeners = function () {
   let board = this;
   for (let r = 0; r < board.height; r++) {
     for (let c = 0; c < board.width; c++) {
@@ -144,23 +145,24 @@ Board.prototype.addEventListeners = function() {
   }
 };
 
-Board.prototype.getNode = function(id) {
+Board.prototype.getNode = function (id) {
   let coordinates = id.split("-");
   let r = parseInt(coordinates[0]);
   let c = parseInt(coordinates[1]);
   return this.boardArray[r][c];
 };
 
-Board.prototype.changeSpecialNode = function(currentNode) {
-  let element = document.getElementById(currentNode.id), previousElement;
+Board.prototype.changeSpecialNode = function (currentNode) {
+  let element = document.getElementById(currentNode.id),
+    previousElement;
   if (this.previouslySwitchedNode) previousElement = document.getElementById(this.previouslySwitchedNode.id);
   if (currentNode.status !== "target" && currentNode.status !== "start" && currentNode.status !== "object") {
     if (this.previouslySwitchedNode) {
       this.previouslySwitchedNode.status = this.previouslyPressedNodeStatus;
       previousElement.className = this.previouslySwitchedNodeWeight === 15 ?
-      "unvisited weight" : this.previouslyPressedNodeStatus;
+        "unvisited weight" : this.previouslyPressedNodeStatus;
       this.previouslySwitchedNode.weight = this.previouslySwitchedNodeWeight === 15 ?
-      15 : 0;
+        15 : 0;
       this.previouslySwitchedNode = null;
       this.previouslySwitchedNodeWeight = currentNode.weight;
 
@@ -180,7 +182,7 @@ Board.prototype.changeSpecialNode = function(currentNode) {
   }
 };
 
-Board.prototype.changeNormalNode = function(currentNode) {
+Board.prototype.changeNormalNode = function (currentNode) {
   let element = document.getElementById(currentNode.id);
   let relevantStatuses = ["start", "target", "object"];
   let unweightedAlgorithms = ["dfs", "bfs"]
@@ -203,7 +205,7 @@ Board.prototype.changeNormalNode = function(currentNode) {
   }
 };
 
-Board.prototype.drawShortestPath = function(targetNodeId, startNodeId, object) {
+Board.prototype.drawShortestPath = function (targetNodeId, startNodeId, object) {
   let currentNode;
   if (this.currentAlgorithm !== "bidirectional") {
     currentNode = this.nodes[this.nodes[targetNodeId].previousNode];
@@ -259,7 +261,7 @@ Board.prototype.drawShortestPath = function(targetNodeId, startNodeId, object) {
   }
 };
 
-Board.prototype.addShortestPath = function(targetNodeId, startNodeId, object) {
+Board.prototype.addShortestPath = function (targetNodeId, startNodeId, object) {
   let currentNode = this.nodes[this.nodes[targetNodeId].previousNode];
   if (object) {
     while (currentNode.id !== startNodeId) {
@@ -275,7 +277,7 @@ Board.prototype.addShortestPath = function(targetNodeId, startNodeId, object) {
   }
 };
 
-Board.prototype.drawShortestPathTimeout = function(targetNodeId, startNodeId, type, object) {
+Board.prototype.drawShortestPathTimeout = function (targetNodeId, startNodeId, type, object) {
   let board = this;
   let currentNode;
   let secondCurrentNode;
@@ -326,14 +328,14 @@ Board.prototype.drawShortestPathTimeout = function(targetNodeId, startNodeId, ty
           }
           secondCurrentNode = board.nodes[secondCurrentNode.otherpreviousNode]
         }
+      }
+    } else {
+      currentNodesToAnimate = [];
+      let target = board.nodes[board.target];
+      currentNodesToAnimate.push(board.nodes[target.previousNode], target);
     }
-  } else {
-    currentNodesToAnimate = [];
-    let target = board.nodes[board.target];
-    currentNodesToAnimate.push(board.nodes[target.previousNode], target);
-  }
 
-}
+  }
 
 
   timeout(0);
@@ -405,7 +407,7 @@ Board.prototype.drawShortestPathTimeout = function(targetNodeId, startNodeId, ty
 
 };
 
-Board.prototype.createMazeOne = function(type) {
+Board.prototype.createMazeOne = function (type) {
   Object.keys(this.nodes).forEach(node => {
     let random = Math.random();
     let currentHTMLNode = document.getElementById(node);
@@ -425,7 +427,7 @@ Board.prototype.createMazeOne = function(type) {
   });
 };
 
-Board.prototype.clearPath = function(clickedButton) {
+Board.prototype.clearPath = function (clickedButton) {
   if (clickedButton) {
     let start = this.nodes[this.start];
     let target = this.nodes[this.target];
@@ -517,7 +519,7 @@ Board.prototype.clearPath = function(clickedButton) {
   });
 };
 
-Board.prototype.clearWalls = function() {
+Board.prototype.clearWalls = function () {
   this.clearPath("clickedButton");
   Object.keys(this.nodes).forEach(id => {
     let currentNode = this.nodes[id];
@@ -530,7 +532,7 @@ Board.prototype.clearWalls = function() {
   });
 }
 
-Board.prototype.clearWeights = function() {
+Board.prototype.clearWeights = function () {
   Object.keys(this.nodes).forEach(id => {
     let currentNode = this.nodes[id];
     let currentHTMLNode = document.getElementById(id);
@@ -542,7 +544,7 @@ Board.prototype.clearWeights = function() {
   });
 }
 
-Board.prototype.clearNodeStatuses = function() {
+Board.prototype.clearNodeStatuses = function () {
   Object.keys(this.nodes).forEach(id => {
     let currentNode = this.nodes[id];
     currentNode.previousNode = null;
@@ -558,7 +560,7 @@ Board.prototype.clearNodeStatuses = function() {
   })
 };
 
-Board.prototype.instantAlgorithm = function() {
+Board.prototype.instantAlgorithm = function () {
   let weightedAlgorithms = ["dijkstra", "CLA", "greedy"];
   let unweightedAlgorithms = ["dfs", "bfs"];
   let success;
@@ -604,12 +606,12 @@ Board.prototype.instantAlgorithm = function() {
   }
 };
 
-Board.prototype.redoAlgorithm = function() {
+Board.prototype.redoAlgorithm = function () {
   this.clearPath();
   this.instantAlgorithm();
 };
 
-Board.prototype.reset = function(objectNotTransparent) {
+Board.prototype.reset = function (objectNotTransparent) {
   this.nodes[this.start].status = "start";
   document.getElementById(this.start).className = "startTransparent";
   this.nodes[this.target].status = "target";
@@ -623,14 +625,14 @@ Board.prototype.reset = function(objectNotTransparent) {
   }
 };
 
-Board.prototype.resetHTMLNodes = function() {
+Board.prototype.resetHTMLNodes = function () {
   let start = document.getElementById(this.start);
   let target = document.getElementById(this.target);
   start.className = "start";
   target.className = "target";
 };
 
-Board.prototype.changeStartNodeImages = function() {
+Board.prototype.changeStartNodeImages = function () {
   let unweighted = ["bfs", "dfs"];
   let strikethrough = ["bfs", "dfs"];
   let guaranteed = ["dijkstra", "astar"];
@@ -690,7 +692,7 @@ Board.prototype.changeStartNodeImages = function() {
 };
 
 let counter = 1;
-Board.prototype.toggleTutorialButtons = function() {
+Board.prototype.toggleTutorialButtons = function () {
 
   document.getElementById("skipButton").onclick = () => {
     document.getElementById("tutorial").style.display = "none";
@@ -712,15 +714,16 @@ Board.prototype.toggleTutorialButtons = function() {
   }
 
   let board = this;
+
   function nextPreviousClick() {
     if (counter === 1) {
       document.getElementById("tutorial").innerHTML = `<h3>Welcome to Pathfinding Visualizer!</h3><h6>This short tutorial will walk you through all of the features of this application.</h6><p>If you want to dive right in, feel free to press the "Skip Tutorial" button below. Otherwise, press "Next"!</p><div id="tutorialCounter">1/9</div><img id="mainTutorialImage" src="public/styling/c_icon.png"><button id="nextButton" class="btn btn-default navbar-btn" type="button">Next</button><button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button><button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>`
     } else if (counter === 2) {
-      document.getElementById("tutorial").innerHTML = `<h3>What is a pathfinding algorithm?</h3><h6>At its core, a pathfinding algorithm seeks to find the shortest path between two points. This application visualizes various pathfinding algorithms in action, and more!</h6><p>All of the algorithms on this application are adapted for a 2D grid, where 90 degree turns have a "cost" of 1 and movements from a node to another have a "cost" of 1.</p><div id="tutorialCounter">${counter}/9</div><img id="mainTutorialImage" src="public/styling/path.png"><button id="nextButton" class="btn btn-default navbar-btn" type="button">Next</button><button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button><button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>`
+      document.getElementById("tutorial").innerHTML = `<h3>What is a pathfinding algorithm?</h3><h6>At its core, a pathfinding algorithm seeks to find the shortest path between two points. This application visualizes various pathfinding algorithms in action, and more!</h6><p>All of the algorithms on this application are adapted for a 2D grid, where 90 degree turns have a "cost" of 1 and movements from a node to another have a "cost" of 1.</p></br></br><div id="tutorialCounter">${counter}/9</div><img id="mainTutorialImage" src="public/styling/path.png"><button id="nextButton" class="btn btn-default navbar-btn" type="button">Next</button><button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button><button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>`
     } else if (counter === 3) {
       document.getElementById("tutorial").innerHTML = `<h3>Picking an algorithm</h3><h6>Choose an algorithm from the "Algorithms" drop-down menu.</h6><p>Note that some algorithms are <i><b>unweighted</b></i>, while others are <i><b>weighted</b></i>. Unweighted algorithms do not take turns or weight nodes into account, whereas weighted ones do. Additionally, not all algorithms guarantee the shortest path. </p><img id="secondTutorialImage" src="public/styling/algorithms.png"><div id="tutorialCounter">${counter}/9</div><button id="nextButton" class="btn btn-default navbar-btn" type="button">Next</button><button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button><button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>`
     } else if (counter === 4) {
-      document.getElementById("tutorial").innerHTML = `<h3>Meet the algorithms</h3><h6>Not all algorithms are created equal.</h6><ul><li><b>Dijkstra's Algorithm</b> (weighted): the father of pathfinding algorithms; guarantees the shortest path</li><li><b>A* Search</b> (weighted): arguably the best pathfinding algorithm; uses heuristics to guarantee the shortest path much faster than Dijkstra's Algorithm</li><li><b>Greedy Best-first Search</b> (weighted): a faster, more heuristic-heavy version of A*; does not guarantee the shortest path</li><li><b>Swarm Algorithm</b> (weighted): a mixture of Dijkstra's Algorithm and A*; does not guarantee the shortest-path</li><li><b>Convergent Swarm Algorithm</b> (weighted): the faster, more heuristic-heavy version of Swarm; does not guarantee the shortest path</li><li><b>Bidirectional Swarm Algorithm</b> (weighted): Swarm from both sides; does not guarantee the shortest path</li><li><b>Breath-first Search</b> (unweighted): a great algorithm; guarantees the shortest path</li><li><b>Depth-first Search</b> (unweighted): a very bad algorithm for pathfinding; does not guarantee the shortest path</li></ul><div id="tutorialCounter">${counter}/9</div><button id="nextButton" class="btn btn-default navbar-btn" type="button">Next</button><button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button><button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>`
+      document.getElementById("tutorial").innerHTML = `<h3>Meet the algorithms</h3><h6>Not all algorithms are created equal.</h6><ul><li><b>Dijkstra's Algorithm</b> (weighted): the father of pathfinding algorithms; guarantees the shortest path</li></br><li><b>A* Search</b> (weighted): arguably the best pathfinding algorithm; uses heuristics to guarantee the shortest path much faster than Dijkstra's Algorithm</li><li><b>Greedy Best-first Search</b> (weighted): a faster, more heuristic-heavy version of A*; does not guarantee the shortest path</li><li><b>Swarm Algorithm</b> (weighted): a mixture of Dijkstra's Algorithm and A*; does not guarantee the shortest-path</li><li><b>Convergent Swarm Algorithm</b> (weighted): the faster, more heuristic-heavy version of Swarm; does not guarantee the shortest path</li><li><b>Bidirectional Swarm Algorithm</b> (weighted): Swarm from both sides; does not guarantee the shortest path</li><li><b>Breath-first Search</b> (unweighted): a great algorithm; guarantees the shortest path</li><li><b>Depth-first Search</b> (unweighted): a very bad algorithm for pathfinding; does not guarantee the shortest path</li></ul><div id="tutorialCounter">${counter}/9</div><button id="nextButton" class="btn btn-default navbar-btn" type="button">Next</button><button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button><button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>`
     } else if (counter === 5) {
       document.getElementById("tutorial").innerHTML = `<h3>Adding walls and weights</h3><h6>Click on the grid to add a wall. Click on the grid while pressing W to add a weight. Generate mazes and patterns from the "Mazes & Patterns" drop-down menu.</h6><p>Walls are impenetrable, meaning that a path cannot cross through them. Weights, however, are not impassable. They are simply more "costly" to move through. In this application, moving through a weight node has a "cost" of 15.</p><img id="secondTutorialImage" src="public/styling/walls.gif"><div id="tutorialCounter">${counter}/9</div><button id="nextButton" class="btn btn-default navbar-btn" type="button">Next</button><button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button><button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>`
     } else if (counter === 6) {
@@ -730,7 +733,7 @@ Board.prototype.toggleTutorialButtons = function() {
     } else if (counter === 8) {
       document.getElementById("tutorial").innerHTML = `<h3>Visualizing and more</h3><h6>Use the navbar buttons to visualize algorithms and to do other stuff!</h6><p>You can clear the current path, clear walls and weights, clear the entire board, and adjust the visualization speed, all from the navbar. If you want to access this tutorial again, click on "Pathfinding Visualizer" in the top left corner of your screen.</p><img id="secondTutorialImage" src="public/styling/navbar.png"><div id="tutorialCounter">${counter}/9</div><button id="nextButton" class="btn btn-default navbar-btn" type="button">Next</button><button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button><button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>`
     } else if (counter === 9) {
-      document.getElementById("tutorial").innerHTML = `<h3>Enjoy!</h3><h6>I hope you have just as much fun playing around with this visualization tool as I had building it!</h6><p>If you want to see the source code for this application, check out my <a href="https://github.com/clementmihailescu/Pathfinding-Visualizer">github</a>.</p><div id="tutorialCounter">${counter}/9</div><button id="finishButton" class="btn btn-default navbar-btn" type="button">Finish</button><button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button><button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>`
+      document.getElementById("tutorial").innerHTML = `<h3>Enjoy!</h3><h6>I hope you have just as much fun playing around with this visualization tool as I had building it!</h6><p>If you want to see the source code for this application, check out my <a href="https://github.com/itsjustmithun/Pathfinding-Visualizer-Vanilla">github</a>.</p><div id="tutorialCounter">${counter}/9</div><button id="finishButton" class="btn btn-default navbar-btn" type="button">Finish</button><button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button><button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>`
       document.getElementById("finishButton").onclick = () => {
         document.getElementById("tutorial").style.display = "none";
         board.toggleButtons();
@@ -740,7 +743,7 @@ Board.prototype.toggleTutorialButtons = function() {
 
 };
 
-Board.prototype.toggleButtons = function() {
+Board.prototype.toggleButtons = function () {
   document.getElementById("refreshButton").onclick = () => {
     window.location.reload(true);
   }
@@ -921,31 +924,31 @@ Board.prototype.toggleButtons = function() {
       let start = Math.floor(height / 2).toString() + "-" + Math.floor(width / 4).toString();
       let target = Math.floor(height / 2).toString() + "-" + Math.floor(3 * width / 4).toString();
 
-        Object.keys(this.nodes).forEach(id => {
-          let currentNode = this.nodes[id];
-          let currentHTMLNode = document.getElementById(id);
-          if (id === start) {
-            currentHTMLNode.className = "start";
-            currentNode.status = "start";
-          } else if (id === target) {
-            currentHTMLNode.className = "target";
-            currentNode.status = "target"
-          } else {
-            currentHTMLNode.className = "unvisited";
-            currentNode.status = "unvisited";
-          }
-          currentNode.previousNode = null;
-          currentNode.path = null;
-          currentNode.direction = null;
-          currentNode.storedDirection = null;
-          currentNode.distance = Infinity;
-          currentNode.totalDistance = Infinity;
-          currentNode.heuristicDistance = null;
-          currentNode.weight = 0;
-          currentNode.relatesToObject = false;
-          currentNode.overwriteObjectRelation = false;
+      Object.keys(this.nodes).forEach(id => {
+        let currentNode = this.nodes[id];
+        let currentHTMLNode = document.getElementById(id);
+        if (id === start) {
+          currentHTMLNode.className = "start";
+          currentNode.status = "start";
+        } else if (id === target) {
+          currentHTMLNode.className = "target";
+          currentNode.status = "target"
+        } else {
+          currentHTMLNode.className = "unvisited";
+          currentNode.status = "unvisited";
+        }
+        currentNode.previousNode = null;
+        currentNode.path = null;
+        currentNode.direction = null;
+        currentNode.storedDirection = null;
+        currentNode.distance = Infinity;
+        currentNode.totalDistance = Infinity;
+        currentNode.heuristicDistance = null;
+        currentNode.weight = 0;
+        currentNode.relatesToObject = false;
+        currentNode.overwriteObjectRelation = false;
 
-        });
+      });
       this.start = start;
       this.target = target;
       this.object = null;
