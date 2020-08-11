@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Pathfinding Visualizer</title>
+  <title>SHORTCUT - Pathfinding Visualizer</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link id="cssTheme" rel="stylesheet" href="public/styling/cssBasic.css" />
   <link rel="shortcut icon" type="image/png" href="public/styling/c_icon.png" />
@@ -12,7 +12,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a id="refreshButton" class="navbar-brand" href="#">Pathfinding Visualizer</a>
+          <a id="refreshButton" class="navbar-brand" href="#">SHORTCUT</a>
         </div>
         <ul class="nav navbar-nav">
           <li class="dropdown">
@@ -29,7 +29,18 @@
               <li id='startButtonDFS'><a href="#">Depth-first Search</a></li>
             </ul>
           </li>
-
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mazes &amp; Patterns
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li id='startButtonCreateMazeTwo'><a href="#">Recursive Division</a></li>
+              <li id='startButtonCreateMazeThree'><a href="#">Recursive Division (vertical skew)</a></li>
+              <li id='startButtonCreateMazeFour'><a href="#">Recursive Division (horizontal skew)</a></li>
+              <li id='startButtonCreateMazeOne'><a href="#">Basic Random Maze</a></li>
+              <li id='startButtonCreateMazeWeights'><a href="#">Basic Weight Maze</a></li>
+              <li id='startStairDemonstration'><a href="#">Simple Stair Pattern</a></li>
+            </ul>
+          </li>
           <li id='startButtonAddObject'><a href="#">Add Bomb</a></li>
           <li id='startButtonStart'><button id="actualStartButton" class="btn btn-default navbar-btn"
               type="button">Visualize!</button></li>
@@ -53,6 +64,7 @@
     <h3>Welcome to Pathfinding Visualizer!</h3>
     <h6>This short tutorial will walk you through all of the features of this application.</h6>
     <p>If you want to dive right in, feel free to press the "Skip Tutorial" button below. Otherwise, press "Next"!</p>
+    </br></br>
     <div id="tutorialCounter">1/9</div>
     <img id="mainTutorialImage" src="public/styling/c_icon.png">
     <button id="nextButton" class="btn btn-default navbar-btn" type="button">Next</button>
@@ -92,6 +104,7 @@
     <div id="algorithmDescriptor">Pick an algorithm and visualize it!</div>
     <table id='board' />
   </div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
