@@ -6,6 +6,10 @@ This project is inspired by **Clément Mihailescu's** Pathfinding Visualizer and
 
 ![Github-1.png](Github-1.png)
 
+![Github-2.png](Github-2.png)
+
+![Github-3.png](Github-3.png)
+
 ## Algorithms
 
 This application uses following algorithms:
