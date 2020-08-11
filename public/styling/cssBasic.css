@@ -15,7 +15,7 @@
 
 .instantshortest-path-up {
   background: url(triangletwo-up.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -23,7 +23,7 @@
 
 .shortest-path-up {
   background: url(triangletwo-up.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -40,7 +40,7 @@
 .instantshortest-path-down {
   /*border: 1px solid rgb(175, 216, 248);*/
   background: url(triangletwo-down.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -49,7 +49,7 @@
 .shortest-path-down {
   /*border: 1px solid rgb(175, 216, 248);*/
   background: url(triangletwo-down.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -66,7 +66,7 @@
 .instantshortest-path-right {
   /*border: 1px solid rgb(175, 216, 248);*/
   background: url(triangletwo-right.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -75,7 +75,7 @@
 .shortest-path-right {
   /*border: 1px solid rgb(175, 216, 248);*/
   background: url(triangletwo-right.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -92,16 +92,17 @@
 .instantshortest-path-left {
   /*border: 1px solid rgb(175, 216, 248);*/
   background: url(triangletwo-left.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
+
 .shortest-path-left {
   /*border: 1px solid rgb(175, 216, 248);*/
   background: url(triangletwo-left.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -120,7 +121,7 @@
   /*border: 1px solid rgb(175, 216, 248);*/
   opacity: 0.5;
   background-image: url(triangletwo-right.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -130,7 +131,7 @@
   /*border: 1px solid rgb(175, 216, 248);*/
   opacity: 0.5;
   background-image: url(triangletwo-right.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -147,7 +148,7 @@
 .visitedStartNodeBlue {
   /*border: 1px solid rgb(175, 216, 248);*/
   background-image: url(triangletwo-right.svg);
-  /*background-color: rgb(245, 176, 65);*/
+  /*background-color: rgb(164, 253, 76);*/
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -164,7 +165,7 @@
 .visitedStartNodePurple {
   /*border: 1px solid rgb(175, 216, 248);*/
   background-image: url(triangletwo-right.svg);
-  /*background-color: rgb(245, 176, 65);*/
+  /*background-color: rgb(164, 253, 76);*/
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -484,17 +485,17 @@
   }
 
   50% {
-    background-color: rgba(17, 104, 217, 0.75);
+    background-color: rgb(139, 142, 241);
   }
 
   75% {
     transform: scale(1.2);
-    background-color: rgba(0, 217, 159, 0.75)
+    background-color: rgb(167, 107, 247);
   }
 
   100% {
     transform: scale(1.0);
-    background-color: rgba(0, 190, 218, 0.75);
+    background-color: rgba(123, 36, 240);
   }
 }
 
@@ -653,13 +654,13 @@
 
 .current {
   border: 1px solid rgb(175, 216, 248);
-  background-color: rgb(245, 176, 65)
+  background-color: rgb(164, 253, 76)
 }
 
 .object {
   /*border: 1px solid rgb(175, 216, 248);*/
   background-image: url(diamond.svg);
-  /*background-color: rgb(245, 176, 65);*/
+  /*background-color: rgb(164, 253, 76);*/
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -677,7 +678,7 @@
   /*border: 1px solid rgb(175, 216, 248);*/
   opacity: 0.5;
   background-image: url(diamond.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -687,7 +688,7 @@
   /*border: 1px solid rgb(175, 216, 248);*/
   opacity: 0.5;
   background-image: url(diamond.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -704,7 +705,7 @@
 .target {
   /*border: 1px solid rgb(175, 216, 248);*/
   background-image: url(circle.svg);
-  /*background-color: rgb(245, 176, 65);*/
+  /*background-color: rgb(164, 253, 76);*/
   /*background-color: rgba(232, 147, 12, 0.75);*/
   background-position: center;
   background-repeat: no-repeat;
@@ -738,12 +739,12 @@
 
 .instantshortest-path {
   /*border: 1px solid rgb(175, 216, 248);*/
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
 }
 
 .instantshortest-path.weight {
   /*border: 1px solid rgb(175, 216, 248);*/
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-image: url(weight.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -752,7 +753,7 @@
 
 .shortest-path {
   /*border: 1px solid rgb(175, 216, 248);*/
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   /*background-position: center;
   background-repeat: no-repeat;
   background-size: contain;*/
@@ -768,7 +769,7 @@
 
 .shortest-path.weight {
   /*border: 1px solid rgb(175, 216, 248);*/
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-image: url(weight.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -786,24 +787,24 @@
 @keyframes triangletwo {
   0% {
     transform: scale(.6);
-    background-color: rgb(245, 176, 65);
+    background-color: rgb(164, 253, 76);
   }
 
   50% {
     transform: scale(1.2);
-    background-color: rgb(245, 176, 65);
+    background-color: rgb(164, 253, 76);
   }
 
   100% {
     transform: scale(1.0);
-    background-color: rgb(245, 176, 65);
+    background-color: rgb(164, 253, 76);
   }
 }
 
 .shortest-path-unweighted {
   /*border: 1px solid rgb(175, 216, 248);*/
   background: url(spaceshiptwo-up.svg);
-  background-color: rgb(245, 176, 65);
+  background-color: rgb(164, 253, 76);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain
