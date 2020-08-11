@@ -2,6 +2,10 @@
 
 This project is inspired by **Clément Mihailescu's** Pathfinding Visualizer and this is a working replica of that project which includes over 8 different algorithms. This project is designed using Vanilla JavaScript.
 
+## Link to the working site
+
+https://itsjustmithun.github.io/Pathfinding-Visualizer-Vanilla/
+
 ## Images
 
 ![Github-1.png](Github-1.png)
