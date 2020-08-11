@@ -4,7 +4,7 @@ This project is inspired by **Clément Mihailescu's** Pathfinding Visualizer and
 
 ## Images
 
-![public/styling/External-Images/Github-1.png](public/styling/External-Images/Github-1.png)
+![public/styling/External-Images/Github-1.png](Github-1.png)
 
 ## Algorithms
 
