@@ -2,6 +2,10 @@
 
 This project is inspired by **Clément Mihailescu's** Pathfinding Visualizer and this is a working replica of that project which includes over 8 different algorithms. This project is designed using Vanilla JavaScript.
 
+## Images
+
+![public/styling/External-Images/Github-1.png](public/styling/External-Images/Github-1.png)
+
 ## Algorithms
 
 This application uses following algorithms:
