@@ -1,6 +1,6 @@
 ## SHORTCUT (Pathfinding Visualizer)
 
-This project is inspired by **Clément Mihailescu's** Pathfinding Visualizer. I tried to create clone of the project which includes over 8 different algorithms. This project is designed using Vanilla JavaScript.
+This project is inspired by **Clément Mihailescu's** Pathfinding Visualizer and this is a working replica of that project which includes over 8 different algorithms. This project is designed using Vanilla JavaScript.
 
 ## Algorithms
 
