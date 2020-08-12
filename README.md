@@ -6,11 +6,13 @@ This project is inspired by **Clément Mihailescu's** Pathfinding Visualizer and
 
 https://itsjustmithun.github.io/Pathfinding-Visualizer-Vanilla/
 
+## Video Demo
+
+![Video.mp4](Video1.mp4)
+
 ## Images
 
 ![Github-1.png](Github-1.png)
-
-![Github-2.png](Github-2.png)
 
 ![Github-3.png](Github-3.png)
 
