@@ -8,7 +8,7 @@ https://itsjustmithun.github.io/Pathfinding-Visualizer-Vanilla/
 
 ## Video Demo
 
-![Shortcut Demo Video(Demo.gif)
+![Shortcut Demo Video](Demo.gif)
 
 ## Images
 
